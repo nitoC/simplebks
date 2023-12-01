@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+const jwt = require('jsonwebtoken')
 
 
 
@@ -14,13 +14,14 @@ const Authorize = (req, res, next) => {
         let token = authorization.split(" ")[1];
         console.log(token, 'token')
 
-        let authorized = jwt.verify(token, process.env.SECRET)
+        let authorized = jwt.verify(token, process.env.SECRETKEY)
         console.log(authorized, 'authorised')
 
         if (!authorized) {
             return res.status(400).json({ message: "invalid user token" })
         }
 
+        console.log(authorized, ' authorized')
         req.user = authorized
         next()
 
@@ -34,4 +35,4 @@ const Authorize = (req, res, next) => {
     }
 }
 
-export default Authorize;
+module.exports = Authorize;

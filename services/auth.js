@@ -17,36 +17,8 @@ const getUserBySellerId = async (SellerId) => {
 
 
 
-const getUserById = async (userId) => {
-    try {
-        let user = await userRepository.findById(userId);
-        console.log(user)
-        return user;
-    } catch (err) {
-        console.log(err.message);
-        return { err };
-    }
-
-}
 
 
-
-const createUser = async (userData) => {
-
-    const user = new userRepository(userData);
-
-
-    try {
-        let userSaved = await user.save();
-        console.log(userSaved)
-        return userSaved;
-
-    } catch (err) {
-        console.log(err.message)
-        if (err) return { err };
-    }
-
-}
 
 
 
@@ -86,8 +58,6 @@ const deleteUser = async (userData) => {
 
 module.exports = {
     getUserBySellerId,
-    getUserById,
-    createUser,
     updateUser,
     deleteUser
 }
