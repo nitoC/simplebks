@@ -8,8 +8,6 @@ Description of your project.
 - [Usage](#usage)
 - [Testing](#testing)
 - [Start](#start)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -23,7 +21,7 @@ npm install
 or
 
 ```bash
-npm install
+yarn install
 
 ```
 
@@ -54,9 +52,10 @@ npm test
 
 or
 
+```bash
 yarn test
 
-`````
+```
 
 
 
@@ -64,10 +63,10 @@ yarn test
 
 To install the required dependencies, run:
 
-````bash
+```bash
 npm start
 
-`````
+```
 
 or
 
