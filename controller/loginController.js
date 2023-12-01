@@ -7,16 +7,18 @@ const Login = async (req, res) => {
 
     try {
         let { username, password } = req.body;
-        console.log(username, password)
+
+        if (!username || !password) {
+            return res.status(400).json({ message: 'Bad request' })
+        }
 
         username = username.trim();
         password = parseInt(password);
-        console.log(username, password)
 
         let user = await getUserBySellerId(username)
-        console.log(user, 'second user')
+
         if (!user) {
-            return res.status(404).send({ msg: "User not found" })
+            return res.status(404).send({ message: "User not found" })
         } else {
             // Create a token
             if (user.seller_zip_code_prefix !== password) {

@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const authRoute = require('./routes/authRoute.js')
 const orderRoute = require('./routes/orderRoute.js')
+const accountRoute = require('./routes/accountRoute.js')
 const app = express()
 
 dotenv.config()// configures environmental variables;
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/api/v1/', authRoute)
 app.use('/api/v1/', orderRoute)
+app.use('/api/v1/', accountRoute)
 
 app.listen(PORT, () => {
   console.log(`listening to port ${PORT}`)

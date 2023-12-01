@@ -12,7 +12,6 @@ const Authorize = (req, res, next) => {
         }
 
         let token = authorization.split(" ")[1];
-        console.log(token, 'token')
 
         let authorized = jwt.verify(token, process.env.SECRETKEY)
         console.log(authorized, 'authorised')

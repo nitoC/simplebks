@@ -1,8 +1,8 @@
 const { getUserBySellerId } = require("../services/auth");
-const { getOrdersBySellerId } = require("../services/orders");
+const { getOrdersBySellerId, deleteOrderById } = require("../services/orders");
 
 
-const Order = async (req, res) => {
+const getOrder = async (req, res) => {
 
     try {
 
@@ -12,12 +12,12 @@ const Order = async (req, res) => {
 
         let userExist = await getUserBySellerId(seller)
         if (!userExist) {
-            return res.status(401).json({ msg: "You are not a seller" })
+            return res.status(401).json({ message: "You are not a seller" })
         } else {
             console.log('here')
             let limitval = limit ? parseInt(limit) > 100 ? 100 : parseInt(limit) < 20 ? 20 : parseInt(limit) : parseInt(20)
 
-            let orders = await getOrdersBySellerId(seller, limitval, sortBy, offset)
+            let orders = await getOrdersBySellerId(seller, limitval, sortBy, parseInt(offset))
 
             res.status(200).json({
                 data: orders.orderItems,
@@ -35,4 +35,37 @@ const Order = async (req, res) => {
 
 }
 
-module.exports = Order
+
+const deleteOrder = async (req, res) => {
+    try {
+        //console.log(req.body, 'delete order item controller');
+        console.log(req, 'check params')
+        let { id } = req.params;
+        let { seller } = req.user
+
+        let userExist = await getUserBySellerId(seller)
+
+        if (!userExist) {
+            return res.status(401).json({ message: "You are not a seller" })
+        } else {
+            let deleted = await deleteOrderById(seller, id)
+            if (!deleted) {
+                throw new Error("Error deleting the Order")
+
+            } else {
+                return res.status(200).json({ message: "Deletion Successful", data: deleted })
+            }
+        }
+    } catch (err) {
+        console.log("error in order", err);
+        return res.status(500).json({ message: err.message })
+    }
+
+
+
+}
+
+module.exports = {
+    getOrder,
+    deleteOrder
+}

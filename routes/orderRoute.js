@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const { getOrderitem, deleteOrderItem } = require('../controller/orderController.js');
+const { getOrder, deleteOrder } = require('../controller/orderController.js');
 const Authorize = require('../middlewares/authorization.js');
 
 
-router.get('/order_items', Authorize, getOrderitem)
-router.delete('/order_items', Authorize, deleteOrderItem)
+router.get('/order_items', Authorize, getOrder)
+router.delete('/order_items/:id', Authorize, deleteOrder)
 
 
 module.exports = router;
