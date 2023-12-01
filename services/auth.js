@@ -9,7 +9,7 @@ const getUserBySellerId = async (SellerId) => {
         return user;
     } catch (err) {
         console.log(err.message);
-        throw new Error('Oops! an error occured');;
+        throw new Error('Oops! an error occured');
     }
 
 }

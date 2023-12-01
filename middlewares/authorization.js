@@ -13,6 +13,7 @@ const Authorize = (req, res, next) => {
 
         let token = authorization.split(" ")[1];
 
+        // eslint-disable-next-line no-undef
         let authorized = jwt.verify(token, process.env.SECRETKEY)
         console.log(authorized, 'authorised')
 
