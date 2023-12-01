@@ -24,7 +24,7 @@ const doc = {
     // eslint-disable-next-line no-undef
     host: process.env.HOST,      // by default: 'localhost:3000'
     basePath: '/',  // by default: '/'
-    schemes: ['http'],   // by default: ['http']
+    schemes: ['https', 'http'],   // by default: ['http']
     consumes: ['application/json'],  // by default: ['application/json']
     produces: ['application/json'],  // by default: ['application/json']
     securityDefinitions: {},  // by default: empty object
