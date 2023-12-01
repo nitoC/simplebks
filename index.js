@@ -27,3 +27,4 @@ app.listen(PORT, () => {
   dbConnection()
 })
 
+module.exports = app

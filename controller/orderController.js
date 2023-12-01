@@ -16,8 +16,8 @@ const getOrder = async (req, res) => {
         } else {
             console.log('here')
             let limitval = limit ? parseInt(limit) > 100 ? 100 : parseInt(limit) < 20 ? 20 : parseInt(limit) : parseInt(20)
-
-            let orders = await getOrdersBySellerId(seller, limitval, sortBy, parseInt(offset))
+            offset = offset ? typeof parseInt(offset) === 'number' ? parseInt(offset) : 0 : 0
+            let orders = await getOrdersBySellerId(seller, limitval, sortBy, offset)
 
             res.status(200).json({
                 data: orders.orderItems,
