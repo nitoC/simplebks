@@ -31,21 +31,19 @@ npm install
 
 Make sure to set up your environment variables by creating a .env file with the following information
 
-# Example .env file
-
-# MongoDB connection string
+### MongoDB connection string
 
 CONNSTRING=mongodb://localhost:27017/your_database_name
 
-# Your secret key for JWT
+### Your secret key for JWT
 
 SECRETKEY=your_secret_key
 
-# Your port
+### Your port
 
 PORT=your_port
 
-## Testing
+### Testing
 
 To install the required dependencies, run:
 
@@ -54,12 +52,13 @@ npm test
 
 ```
 
-```bash
+or
+
 yarn test
 
-```
+`````
 
-or
+
 
 ## Start
 
@@ -68,12 +67,17 @@ To install the required dependencies, run:
 ````bash
 npm start
 
-```
+`````
 
 or
-
 
 ```bash
 yarn start
 
-````
+```
+
+## Live Testing
+
+visit link to test live
+
+https://simplebkstest.onrender.com/api-docs/#/
