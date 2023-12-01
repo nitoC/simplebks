@@ -41,6 +41,10 @@ SECRETKEY=your_secret_key
 
 PORT=your_port
 
+### Your host
+
+HOST= localhost:8080
+
 ### Testing
 
 To install the required dependencies, run:
