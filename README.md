@@ -1,6 +1,4 @@
-# SIMPLEBKS BACKEND TECHINICAL TEST
 
-Description of your project.
 
 ## Table of Contents
 
